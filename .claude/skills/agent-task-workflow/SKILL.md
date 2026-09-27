@@ -5,7 +5,7 @@ description: Use whenever picking up a new implementation task (as a Maker), rev
 
 # Agent task workflow
 
-This skill governs how any task gets picked up, implemented, and verified. It has three parts: slicing a task, the Maker's contract, and the Checker's contract. The six core rules in CLAUDE.md still apply throughout — this skill is how they get put into practice.
+This skill governs how any task gets picked up, implemented, and verified. It has three parts: slicing a task, the Maker's contract, and the Checker's contract. The core rules in CLAUDE.md still apply throughout — this skill is how they get put into practice.
 
 ## Slicing a task (only if one doesn't already exist for the work at hand)
 
@@ -36,7 +36,8 @@ If anything above is missing, unclear, or contradicts something else you were gi
 2. Once approved: a single diff, touching only the declared scope.
 3. Tests that encode the acceptance criteria, written alongside the implementation.
 4. A one-paragraph note: what you built, any assumption you had to make explicit even if small, and confirmation the scope list was respected.
-5. Nothing else. No unrelated refactors, no speculative extensions, no new files outside scope, no dependencies not already agreed.
+5. Once the Checker has passed the diff: check this task's box in `docs-blocks/PROGRESS.md`, in the same change or an immediate follow-up commit. Don't check it before the Checker passes it, and don't check it if only part of the acceptance criteria is satisfied.
+6. Nothing else. No unrelated refactors, no speculative extensions, no new files outside scope, no dependencies not already agreed.
 
 ## Acting as a Checker
 
@@ -52,5 +53,5 @@ If the acceptance criteria weren't provided: **stop and ask**. Never infer what 
 1. A pass or fail verdict per criterion — never a single "looks good." One line per criterion, citing the specific file and location.
 2. A scope check: does the diff touch anything outside the declared scope list? If yes, automatic fail, regardless of code quality elsewhere.
 3. A check against the negative-space list — new dependencies, unrelated changes, speculative flexibility — flagged even if the "real" functionality works.
-4. If everything passes: say so explicitly, criterion by criterion.
+4. If everything passes: say so explicitly, criterion by criterion, and confirm the task's box in `docs-blocks/PROGRESS.md` has been (or still needs to be) checked — don't let a passed task go untracked.
 5. If anything fails: specific, actionable feedback tied to the exact criterion and location, sent back to the Maker. Never fix it yourself.
