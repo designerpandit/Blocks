@@ -2,9 +2,18 @@
 
 A checklist of every task and version in the roadmap. This is the single place to check "what's actually done" without reading git history or re-deriving it from the code.
 
-**Rule for every agent (Maker or Checker): after a task passes review and is merged, check its box here in the same change, or in an immediate follow-up commit. An unchecked box means the task is not done, regardless of what any other doc or comment claims.**
+Every task-level item has two boxes, not one:
 
-Do not check a box speculatively, and do not check a box for work that only partially satisfies its acceptance criteria — partial progress stays unchecked, with a note if useful.
+```
+- [ ] **Task N.N — name**
+  - [ ] Checker verified
+```
+
+- The top box is checked by the **Maker** once the Maker itself believes the task is complete and has delivered its diff, tests, and note.
+- The nested **"Checker verified"** box is checked only by a **Checker** agent, after it has independently reviewed that diff against the task's exact acceptance criteria per the `agent-task-workflow` skill, and passed it.
+- **Whenever a Maker checks the top box, that task must go to a Checker before the work is treated as actually done.** A top box checked with its "Checker verified" box still unchecked means: implemented, not yet independently verified — not the same as done.
+- Never check either box speculatively, and never check a box for work that only partially satisfies its acceptance criteria — partial progress stays unchecked, with a note if useful.
+- Version-level items not yet broken into tasks (most of Phase 3 onward) keep a single box, since there's no diff yet for a Checker to verify — that single box only gets checked once every task under that version has both its boxes checked.
 
 ---
 
@@ -13,32 +22,48 @@ Do not check a box speculatively, and do not check a box for work that only part
 ### v1 — Fork the core · Free
 
 - [x] **Task 1.1 — Establish the fork baseline** — fresh clone builds and runs (`yarn install` + `yarn start`), serving Storybook's own example stories with zero visual or behavioral difference from upstream
+  - [ ] Checker verified
 - [x] **Task 1.2 — Verify the Controls addon** — loads and functions unmodified (confirmed alongside 1.1: Controls tab present and functional on the Button story)
+  - [ ] Checker verified
 - [x] **Task 1.3 — Verify the Docs addon** — loads and functions unmodified (confirmed alongside 1.1: Docs page renders for the Button component)
+  - [ ] Checker verified
 - [x] **Task 1.4 — Verify the a11y addon** — loads and functions unmodified (confirmed alongside 1.1: Accessibility tab present on the Button story)
+  - [ ] Checker verified
 - [ ] **Task 1.5 — Smoke-test suite over 20+ sample stories** — automated suite renders 20+ representative stories headlessly, asserts no console errors or render failures, passes in CI
+  - [ ] Checker verified
 - [ ] **Task 1.6 — Document the upstream security-sync process** — written, checked-in process for diffing the fork against upstream Storybook releases
+  - [ ] Checker verified
 
 ### v2 — Own shell and packaging · Free
 
 - [ ] **Task 2.1 — Rebrand the manager UI shell, visual only**
+  - [ ] Checker verified
 - [ ] **Task 2.2 — One-command install and Docker image**
+  - [ ] Checker verified
 - [ ] **Task 2.3 — Basic accessibility pass on the manager shell**
+  - [ ] Checker verified
 - [ ] **Task 2.4 — Wire in error tracking, logging, and an uptime check**
+  - [ ] Checker verified
 
 ## Phase 2 — Get an existing library in fast
 
 ### v3 — Import wizard · Free
 
 - [ ] **Task 3.1 — Docgen introspection for a single component**
+  - [ ] Checker verified
 - [ ] **Task 3.2 — Bulk introspection across a whole library**
+  - [ ] Checker verified
 - [ ] **Task 3.3 — Failure reporting for un-importable components**
+  - [ ] Checker verified
 
 ### v4 — Token importer · Free
 
 - [ ] **Task 4.1 — Parse a single token format (JSON)**
+  - [ ] Checker verified
 - [ ] **Task 4.2 — Generate the theme decorator and CSS custom properties**
+  - [ ] Checker verified
 - [ ] **Task 4.3 — Unsupported-format error handling**
+  - [ ] Checker verified
 
 ## Phase 3 — Designer-friendly browsing
 

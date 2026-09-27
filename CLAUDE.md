@@ -12,7 +12,7 @@ These apply to every task, every session, no exceptions.
 4. Never paraphrase or reinterpret acceptance criteria. Work from them exactly as given.
 5. Propose a short plan before writing any code (use plan mode). Wait for it to be approved before implementing.
 6. Treat `docs/guidance.md` as the single source of truth for naming and structural conventions. If it's silent on something material to the task, that's a missing prerequisite — see rule 1.
-7. When a task is checked off complete (passes its Checker review and is merged), update its box in `docs-blocks/PROGRESS.md` in that same change, or in an immediate follow-up commit. Never mark a box done for a task that only partially satisfies its acceptance criteria. `docs-blocks/PROGRESS.md` is the single source of truth for "what's actually done" — keep it current, don't let it drift.
+7. `docs-blocks/PROGRESS.md` is the single source of truth for "what's actually done" — keep it current, don't let it drift. Each task there has two boxes: the Maker checks the task's own box once its diff, tests, and note are delivered; the nested "Checker verified" box is checked only by a Checker, only after it has independently reviewed that diff against the task's exact acceptance criteria and passed it. Whenever a Maker checks a task's box, that task must go to a Checker before it's treated as done — a checked task box with an unchecked "Checker verified" box means implemented, not yet verified. Never check either box for a task that only partially satisfies its acceptance criteria.
 
 For the full task-intake and review workflow, use the `agent-task-workflow` skill.
 
