@@ -53,6 +53,12 @@ Phase 1 and Phase 2 — the versions being built first — are broken all the wa
 
 ### v2 — Own shell and packaging
 
+**Task 2.0 — Backend service skeleton**
+
+- Behavior: a persistent Node/TypeScript backend service boots and responds on a health-check endpoint; nothing else
+- Scope: a new `backend/` directory (Fastify, per `docs-blocks/Tech stack.md`'s persistent-Node-process requirement — no Next.js/Vercel, which that doc rules out for this role), plus adding `backend` to the root `package.json` workspaces list
+- Prerequisites: v1 complete
+
 **Task 2.1 — Rebrand the manager UI shell, visual only**
 
 - Behavior: the manager UI shows the new name, logo, and colors; no functional change
@@ -76,7 +82,7 @@ Phase 1 and Phase 2 — the versions being built first — are broken all the wa
 
 - Behavior: an intentionally-thrown test error appears in the tracking dashboard; a log line appears in the log service; an uptime check reports the service as up
 - Scope: a new observability/instrumentation module and backend bootstrap config only
-- Prerequisites: v1 complete (independent of 2.1–2.3, can run in parallel)
+- Prerequisites: 2.0 complete (independent of 2.1–2.3, can run in parallel)
 
 ## Phase 2 (v3–v4), broken into agent-ready tasks
 

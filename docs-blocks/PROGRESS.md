@@ -36,7 +36,9 @@ Every task-level item has two boxes, not one:
 
 ### v2 — Own shell and packaging · Free
 
-- [ ] **Task 2.1 — Rebrand the manager UI shell, visual only**
+- [x] **Task 2.0 — Backend service skeleton** — new `backend/` workspace (Fastify, TypeScript) boots via `node src/index.ts` and responds `{"status":"ok"}` on `GET /health`; verified locally with `curl`. `backend` added to root `package.json` workspaces list. No Docker, CI, or observability wiring — out of scope for this task.
+  - [x] Checker verified — all 4 acceptance points re-verified independently (boots, responds 200, persistent process, nothing else added); flagged and fixed one negative-space issue: `start` script carried an unnecessary `--experimental-strip-types` flag contradicting AGENTS.md's documented Node 22.22.3 type-stripping behavior — removed, re-confirmed working without it.
+- [x] **Task 2.1 — Rebrand the manager UI shell, visual only** — manager sidebar shows brand title "Blocks", a placeholder logo, and a dark Airbnb/Resend-style palette (coral accent on near-black); no manager logic touched. `code/.storybook/manager.tsx` (theme config only) + new `code/.storybook/blocks-logo.svg` asset. Verified manually in the internal Storybook UI: Controls, Accessibility, and story rendering all still function unmodified.
   - [ ] Checker verified
 - [ ] **Task 2.2 — One-command install and Docker image**
   - [ ] Checker verified
