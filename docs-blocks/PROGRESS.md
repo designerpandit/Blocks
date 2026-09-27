@@ -22,13 +22,13 @@ Every task-level item has two boxes, not one:
 ### v1 — Fork the core · Free
 
 - [x] **Task 1.1 — Establish the fork baseline** — fresh clone builds and runs (`yarn install` + `yarn start`), serving Storybook's own example stories with zero visual or behavioral difference from upstream
-  - [ ] Checker verified
+  - [x] Checker verified
 - [x] **Task 1.2 — Verify the Controls addon** — loads and functions unmodified (confirmed alongside 1.1: Controls tab present and functional on the Button story)
-  - [ ] Checker verified
+  - [x] Checker verified
 - [x] **Task 1.3 — Verify the Docs addon** — loads and functions unmodified (confirmed alongside 1.1: Docs page renders for the Button component)
-  - [ ] Checker verified
+  - [x] Checker verified
 - [x] **Task 1.4 — Verify the a11y addon** — loads and functions unmodified (confirmed alongside 1.1: Accessibility tab present on the Button story)
-  - [ ] Checker verified
+  - [x] Checker verified
 - [ ] **Task 1.5 — Smoke-test suite over 20+ sample stories** — automated suite renders 20+ representative stories headlessly, asserts no console errors or render failures, passes in CI
   - [ ] Checker verified
 - [ ] **Task 1.6 — Document the upstream security-sync process** — written, checked-in process for diffing the fork against upstream Storybook releases
