@@ -85,6 +85,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    env:
+      # `yarn start` regenerates the sandbox, which does its own `yarn install`.
+      # CI's default immutable-lockfile enforcement rejects that, the same
+      # reason generate-sandboxes.yml sets this.
+      YARN_ENABLE_IMMUTABLE_INSTALLS: 'false'
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
