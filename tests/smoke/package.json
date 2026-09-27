@@ -1,0 +1,12 @@
+{
+  "name": "blocks-smoke-tests",
+  "private": true,
+  "description": "Task 1.5: headless smoke pass over 20+ sample Storybook stories, asserting no console errors or render failures.",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.58.2"
+  }
+}

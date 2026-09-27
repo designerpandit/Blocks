@@ -29,9 +29,9 @@ Every task-level item has two boxes, not one:
   - [x] Checker verified
 - [x] **Task 1.4 — Verify the a11y addon** — loads and functions unmodified (confirmed alongside 1.1: Accessibility tab present on the Button story)
   - [x] Checker verified
-- [ ] **Task 1.5 — Smoke-test suite over 20+ sample stories** — automated suite renders 20+ representative stories headlessly, asserts no console errors or render failures, passes in CI
+- [x] **Task 1.5 — Smoke-test suite over 20+ sample stories** — automated suite renders 20+ representative stories headlessly, asserts no console errors or render failures, passes in CI (`tests/smoke/`, 24 confirmed real story IDs, all 24 passing locally; wired into `.github/workflows/fork-checks.yml` as a new `smoke` job, following that file's existing fork-only pattern)
   - [ ] Checker verified
-- [ ] **Task 1.6 — Document the upstream security-sync process** — written, checked-in process for diffing the fork against upstream Storybook releases
+- [x] **Task 1.6 — Document the upstream security-sync process** — written, checked-in process for diffing the fork against upstream Storybook releases (`docs-blocks/upstream-security-sync.md`)
   - [ ] Checker verified
 
 ### v2 — Own shell and packaging · Free
