@@ -1,0 +1,52 @@
+name: Publish Docker image
+
+# Publishes ghcr.io/designerpandit/blocks:<version> when a tag like blocks-v0.2.0 is pushed
+on:
+  push:
+    tags:
+      - 'blocks-v*'
+
+permissions: {}
+
+jobs:
+  publish:
+    name: Build, verify, and push image
+    if: github.repository_owner != 'storybookjs'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    env:
+      TAG_NAME: ${{ github.ref_name }}
+      IMAGE: ghcr.io/designerpandit/blocks
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Build image
+        run: |
+          VERSION="${TAG_NAME#blocks-v}"
+          docker build -t "$IMAGE:$VERSION" .
+
+      - name: Verify the container reports healthy
+        run: |
+          VERSION="${TAG_NAME#blocks-v}"
+          docker run -d --name blocks -p 3001:3001 "$IMAGE:$VERSION"
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:3001/health | grep -q '"status":"ok"'; then
+              echo "healthy"
+              exit 0
+            fi
+            sleep 2
+          done
+          docker logs blocks
+          exit 1
+
+      - name: Push image
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION="${TAG_NAME#blocks-v}"
+          echo "$GITHUB_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+          docker push "$IMAGE:$VERSION"
