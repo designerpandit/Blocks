@@ -20,7 +20,7 @@ addons.setConfig({
     appBg: '#0A0A0A',
     appContentBg: '#141414',
     appPreviewBg: '#141414',
-    appBorderColor: 'hsl(0 0% 100% / 0.1)',
+    appBorderColor: '#666666',
     appBorderRadius: 6,
 
     textColor: '#F5F5F5',
@@ -33,12 +33,12 @@ addons.setConfig({
     barSelectedColor: '#FF385C',
 
     buttonBg: '#141414',
-    buttonBorder: 'hsl(0 0% 100% / 0.1)',
+    buttonBorder: '#666666',
     booleanBg: '#141414',
     booleanSelectedBg: '#1F1F1F',
 
     inputBg: '#141414',
-    inputBorder: 'hsl(0 0% 100% / 0.1)',
+    inputBorder: '#666666',
     inputTextColor: '#F5F5F5',
     inputBorderRadius: 6,
   }),

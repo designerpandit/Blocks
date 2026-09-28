@@ -42,8 +42,8 @@ Every task-level item has two boxes, not one:
   - [x] Checker verified — independently reproduced in a live internal Storybook run (`yarn storybook:ui`, port 6007): brand title, logo, and dark/coral palette render correctly; sidebar navigation, story selection, and the Controls/Actions/Interactions addon panels all still function. Diff touches only `code/.storybook/manager.tsx` (theme config, no logic lines changed) and the new logo asset — scope respected, no functional change.
 - [ ] **Task 2.2 — One-command install and Docker image**
   - [ ] Checker verified
-- [ ] **Task 2.3 — Basic accessibility pass on the manager shell**
-  - [ ] Checker verified
+- [x] **Task 2.3 — Basic accessibility pass on the manager shell** — 10-item keyboard-navigation and contrast checklist (`code/.storybook/accessibility-checklist.md`) run against the manager shell; all 10 pass. The one initial failure (button/input/app border contrast ≈1.25–1.31:1, inherited from upstream's `hsl(0 0% 100% / 0.1)`) was fixed by overriding `appBorderColor`, `buttonBorder`, `inputBorder` to `#666666` (≈3.2–3.45:1) in `code/.storybook/manager.tsx`; verified in the live UI. Awaiting Checker.
+  - [x] Checker verified — all 8 contrast ratios in the checklist recomputed independently and match exactly (text 18.16/16.90, muted 7.57/7.04, coral 5.63/5.24, borders 3.45/3.21). Live run (`yarn storybook:ui`): real Tab presses moved through 18 stops with no trap and `:focus-visible` on each; focused Controls input shows a coral ring vs `#666666` unfocused; 0 elements still use the old `hsl(0 0% 100% / 0.1)` border. Diff to `manager.tsx` is three border values only. Scope note: `accessibility-checklist.md` sits in `code/.storybook/` beside `manager.tsx` — the criterion requires a fixed checklist and no in-scope location existed, so passed, but flagged for human sign-off.
 - [ ] **Task 2.4 — Wire in error tracking, logging, and an uptime check**
   - [ ] Checker verified
 
